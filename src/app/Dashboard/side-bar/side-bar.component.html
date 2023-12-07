@@ -1,0 +1,89 @@
+<div class="frame" [ngClass]="isDarkMode ? 'dark' : '' ">
+  <nav [ngClass]="isSideBarOpen ? 'sidebar' : 'sidebar closed' ">
+    <header>
+        <div class="image-text">
+            <span class="image-circle image">
+                <img src="../../../assets/profile-pic.jpg" alt="user">
+            </span>
+
+            <div class="text logo-text">
+                <span class="name">Ranjith</span>
+                <span class="profession" >Full Stack Developer</span>
+            </div>
+        </div>
+
+        <i class='bx toggle' [ngClass]="isSideBarOpen ? 'bx-chevron-right' : 'bx-chevron-left'" (click)="updateSidebar()" ></i>
+    </header>
+
+    <div class="menu-bar">
+        <div class="menu">
+
+            <li class="search-box">
+                <i class='bx bx-search icon'></i>
+                <input type="text" placeholder="Search...">
+            </li>
+
+            <ul class="menu-links">
+                <li class="nav-link" [ngClass]="selectedTab === 'Dashboard' ? 'selected-tab' : '' ">
+                    <a (click)="updateSelectedTab('Dashboard')" >
+                        <i class='bx bx-home-alt icon' ></i>
+                        <span class="text nav-text text-color">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-link" [ngClass]="selectedTab === 'Report' ? 'selected-tab' : '' ">
+                    <a (click)="updateSelectedTab('Report')">
+                        <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                        <span class="text nav-text text-color">Report</span>
+                    </a>
+                </li>
+
+                <li class="nav-link" [ngClass]="selectedTab === 'Notifications' ? 'selected-tab' : '' ">
+                    <a (click)="updateSelectedTab('Notifications')">
+                        <i class='bx bx-bell icon'></i>
+                        <span class="text nav-text text-color">Notifications</span>
+                    </a>
+                </li>
+
+                <li class="nav-link" [ngClass]="selectedTab === 'Analytics' ? 'selected-tab' : '' ">
+                    <a (click)="updateSelectedTab('Analytics')">
+                        <i class='bx bx-pie-chart-alt icon' ></i>
+                        <span class="text nav-text text-color">Analytics</span>
+                    </a>
+                </li>
+
+                <li class="nav-link" [ngClass]="selectedTab === 'Favorite' ? 'selected-tab' : '' ">
+                    <a (click)="updateSelectedTab('Favorite')">
+                        <i class='bx bx-heart icon' ></i>
+                        <span class="text nav-text text-color">Favorite</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="bottom-content">
+            <li class="">
+                <a>
+                    <i class='bx bx-log-out icon' ></i>
+                    <span class="text nav-text">Logout</span>
+                </a>
+            </li>
+
+            <li class="mode">
+                <div class="sun-moon">
+                    <i class='bx bx-moon icon moon'></i>
+                    <i class='bx bx-sun icon sun'></i>
+                </div>
+                <span class="mode-text text"> {{themeMode}} </span>
+
+                <div class="toggle-switch" (click)="updateTheme()" >
+                    <span class="switch"></span>
+                </div>
+            </li>
+            
+        </div>
+    </div>
+
+</nav>
+</div>

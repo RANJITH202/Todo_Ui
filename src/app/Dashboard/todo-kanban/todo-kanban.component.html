@@ -1,0 +1,63 @@
+<div class="kanban-frame">
+  <div class="kanban-top-bar">
+    <mat-form-field class="example-full-width">
+      <span matPrefix> </span>
+      <input type="text" [(ngModel)]="searchText" matInput placeholder="Search" name= "search" (keydown.enter)="search()">
+      <button matSuffix mat-button (click)="search()"><mat-icon >search</mat-icon></button>
+    </mat-form-field>
+  </div>
+  <div cdkDropListGroup>
+  
+    <div class="kanban-container">
+      <span class="kanban-title">To do {{count}}</span>
+    <div
+      cdkDropList
+      [cdkDropListData]="todo"
+      class="kanban-list"
+      (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of todo; trackBy: trackItem">
+        <div class="kanban-box" cdkDrag [cdkDragData]="item">
+          <div class="box-content">
+            <h3 matLine>
+              <mat-chip-list>
+                <mat-chip>
+                  <a style="color: #0B7641" >{{item}}</a></mat-chip>
+                </mat-chip-list>
+              </h3>
+              <p matLine class="text-inverse" > {{item}} </p>
+              <p matLine class="text-inverse"><b>{{item}}</b></p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kanban-container">
+    <span class="kanban-title">To do {{count}}</span>
+    <div
+      cdkDropList
+      [cdkDropListData]="inProgress"
+      class="kanban-list"
+      (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of inProgress; trackBy: trackItem">
+        <div class="kanban-box" cdkDrag [cdkDragData]="item">{{item}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kanban-container">
+    <span class="kanban-title">To do {{count}}</span>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="done"
+      class="kanban-list"
+      (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of done; trackBy: trackItem">
+        <div class="kanban-box" cdkDrag [cdkDragData]="item">{{item}}</div>
+      </div>      
+    </div>
+  </div>
+
+</div>
+</div>

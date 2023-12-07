@@ -1,0 +1,41 @@
+<div class="frame">
+  <form>
+    <div class="form-div">
+      <div class=" form-content">
+        <div class="form-label">
+          <span>Todo Info</span>
+        </div>
+        <div class="form-elements">
+          <!-- TODO Name -->
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Todo Name</mat-label>
+              <input matInput placeholder="New Task">
+            </mat-form-field>
+          </div>
+          <!-- TODO Description -->
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea matInput></textarea>
+            </mat-form-field>
+          </div>
+          <!-- TODO date -->
+          <div class="expiry-date">
+            <mat-form-field>
+              <mat-label>Expiry Date</mat-label>
+              <input matInput [matDatepicker]="datePicker">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
+              <mat-datepicker #datePicker ></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class=" form-btns">
+        <button mat-raised-button color="success" type="submit"> Create </button>
+        <button mat-raised-button color="warn" type="reset"> Clear</button>
+      </div>
+    </div>
+  </form>
+</div>

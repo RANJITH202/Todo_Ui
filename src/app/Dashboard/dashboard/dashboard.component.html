@@ -1,0 +1,22 @@
+<div class="frame">
+  <div class="header">
+    <h2>Todo</h2>
+  </div>
+  <div class="option-div">
+    <button mat-flat-button [ngClass]="tabName === 'list' ? 'tab-highlight' : 'tab-btn'" (click)="changeTab('list')">
+      List
+    </button>
+    <button mat-flat-button [ngClass]="tabName === 'kanban' ? 'tab-highlight' : 'tab-btn'" (click)="changeTab('kanban')">
+      Kanban
+    </button>
+    <button mat-flat-button [ngClass]="tabName === 'form' ? 'tab-highlight' : 'tab-btn'" (click)="changeTab('form')">
+      Form
+    </button>
+  </div>
+  <div class="content-div">
+    <app-todo-list *ngIf="tabName === 'list'"></app-todo-list>
+    <app-todo-form *ngIf="tabName === 'form'"></app-todo-form>
+    <app-todo-kanban *ngIf="tabName === 'kanban'"></app-todo-kanban>
+    <!-- <app-todo-kanban></app-todo-kanban> -->
+  </div>
+</div>

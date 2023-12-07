@@ -1,1 +1,82 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$Todo-ui-primary: mat.define-palette(mat.$deep-purple-palette);
+$Todo-ui-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$Todo-ui-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$Todo-ui-theme: mat.define-light-theme((
+  color: (
+    primary: $Todo-ui-primary,
+    accent: $Todo-ui-accent,
+    warn: $Todo-ui-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($Todo-ui-theme);
+
 /* You can add global styles to this file, and also import other style files */
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+:root{
+  /* ===== Colors ===== */
+  --body-color: hsl(224, 54%, 93%);
+  --sidebar-color: #FFF;
+  --primary-color: #302b63;
+  --secondary-color: #302b639d;
+  --primary-color-light: #F6F5FF;
+  --toggle-color: #DDD;
+  --text-color: #707070;
+  --sidebar-text-color: #FFF;
+
+
+  /* ====== Transition ====== */
+  --tran-03: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.3s ease;
+  --tran-05: all 0.3s ease;
+}
+body{
+  min-height: 100vh;
+  background-color: var(--body-color);
+  transition: var(--tran-03);
+}
+::selection{
+  background-color: var(--primary-color);
+  color: #fff;
+}
+body.dark{
+  --body-color: #18191a;
+  --sidebar-color: #242526;
+  --primary-color: #3a3b3c;
+  --secondary-color: #3a3b3c3a;
+  --primary-color-light: #3a3b3c;
+  --toggle-color: #fff;
+  --text-color: #ccc;
+  --sidebar-text-color: #FFF;
+}

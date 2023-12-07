@@ -1,0 +1,83 @@
+<div class="frame">
+  <div class="table-holder">
+
+    <div class="title-holder">
+      <h1 class="list-title">TODO List</h1>
+    </div>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" class="task-table mat-elevation-z8">
+
+        <!-- Task Name Column -->
+        <ng-container matColumnDef="taskName">
+          <th class="header task-name-column" mat-header-cell *matHeaderCellDef>
+            <span>Task Name</span>
+            <button mat-button mat-sort-header class="float-right btn-icon">
+              <mat-icon class="sort-icon" svgIcon="sortIcon"></mat-icon>
+            </button>
+          </th>
+          <td mat-cell *matCellDef="let task"> {{task.taskName}} </td>
+        </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+          <th class="header description-column" mat-header-cell *matHeaderCellDef>
+            <span>Description</span>
+            <button mat-button mat-sort-header class="float-right btn-icon">
+              <mat-icon class="sort-icon" svgIcon="sortIcon"></mat-icon>
+            </button>
+          </th>
+          <td mat-cell *matCellDef="let task">{{task.description}}</td>
+        </ng-container>
+
+        <!-- Completed Date Column -->
+        <ng-container matColumnDef="completedDate">
+          <th class="header date-column" mat-header-cell *matHeaderCellDef>
+            <span>Completed Date</span>
+            <button mat-button mat-sort-header class="float-right btn-icon">
+              <mat-icon class="sort-icon" svgIcon="sortIcon"></mat-icon>
+            </button>
+          </th>
+          <td mat-cell *matCellDef="let task">{{task.completedDate | date:'medium'}}</td>
+        </ng-container>
+
+        <!-- Created Date Column -->
+        <ng-container matColumnDef="createdDate">
+          <th class="header date-column" mat-header-cell *matHeaderCellDef>
+            <span>Created Date </span>
+            <button mat-button mat-sort-header class="float-right btn-icon">
+              <mat-icon class="sort-icon" svgIcon="sortIcon"></mat-icon>
+            </button>
+          </th>
+          <td mat-cell *matCellDef="let task">{{task.createdDate | date:'medium'}}</td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+          <th class="header status-column" mat-header-cell *matHeaderCellDef>
+            <span>Status</span>
+            <button mat-button mat-sort-header class="float-right btn-icon">
+              <mat-icon class="sort-icon" svgIcon="sortIcon"></mat-icon>
+            </button>
+          </th>
+          <td mat-cell *matCellDef="let task">{{task.status}}</td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="state">
+          <th class="header state-column" mat-header-cell *matHeaderCellDef>
+            <span>State</span>
+          </th>
+          <td class="state-cell" mat-cell *matCellDef="let task">
+            <svg height="14" width="14">
+              <circle cx="7" cy="7" r="7" [ngClass]="getStateColor(task.status)" />
+            </svg>
+          </td>
+        </ng-container> -->
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+  </div>
+</div>

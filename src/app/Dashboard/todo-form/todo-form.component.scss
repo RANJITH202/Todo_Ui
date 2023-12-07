@@ -1,0 +1,53 @@
+.frame{
+  position: absolute;
+  top: 115px;
+  height: 630px;
+  width: -webkit-fill-available;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: var(--sidebar-color);
+  .form-div{
+    display: flex;
+    flex-direction: column;
+    .mat-form-field{
+      display: block;
+    }
+    input{
+      width: auto;
+    }
+    .form-content{
+      display: flex;
+
+      .form-label{
+        padding: 10px;
+      }
+
+      .form-elements{
+        padding: 10px;
+        width: 400px; 
+
+        .expiry-date{
+          input{
+            margin-top: 20px;
+          }
+          ::ng-deep .mat-form-field-label-wrapper{
+            top: 0;
+          }
+          mat-datepicker-toggle{
+            float: right;
+          }
+        }
+      }
+
+    }
+    .form-btns{
+      width: 40%;
+      padding: 10px;
+      display: flex;
+      justify-content: space-around;
+      button{
+        margin-left: 10px;
+      }
+    }
+  }
+}

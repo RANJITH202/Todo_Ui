@@ -1,16 +1,14 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
+import {HttpHeaders} from "@angular/common/http";
 
+export function getHeaders() {
+    return {headers: new HttpHeaders(
+            {'Authorization': 'ID: PROD DTS SIGNATURE', 'XDate': new Date().toString()})};
+}
 export const environment = {
-  production: false
-};
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+    production: false,
+    BASE_URL : 'http://localhost:3300/',
+    APP_BASE_URL:'http://localhost:4200/',
+    REQUEST_HEADER: { 'Authorization': 'ID: PROD DTS SIGNATURE', 'XDate': new Date().toString() },
+    CONTENT_TYPE: 'application/json',
+    ENV: 'DEV',
+}

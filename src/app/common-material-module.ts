@@ -7,6 +7,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatRippleModule} from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   exports: [
@@ -17,7 +18,8 @@ import {MatTableModule} from '@angular/material/table';
       MatNativeDateModule,
       MatRippleModule,
       MatTableModule,
-      MatFormFieldModule
+      MatFormFieldModule,
+      MatChipsModule,
   ]
 })
 export class CommonMaterialModule {}

@@ -6,48 +6,87 @@
   margin: 10px;
   border-radius: 5px;
   background-color: var(--sidebar-color);
-  .form-div{
-    display: flex;
-    flex-direction: column;
-    .mat-form-field{
-      display: block;
-    }
-    input{
-      width: auto;
-    }
-    .form-content{
+  form{
+    height: 100%;
+    width: 50%;
+  }
+  .grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    height: 100%;
+
+    .task-fields{
       display: flex;
-
-      .form-label{
-        padding: 10px;
+      flex-direction: column;
+      mat-form-field{
+        margin-top: -10px;
       }
-
-      .form-elements{
-        padding: 10px;
-        width: 400px; 
-
-        .expiry-date{
-          input{
-            margin-top: 20px;
-          }
-          ::ng-deep .mat-form-field-label-wrapper{
-            top: 0;
-          }
-          mat-datepicker-toggle{
-            float: right;
-          }
+      mat-label{
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
+    .grid-left{
+      grid-column: 1 / 3;
+      padding: 10px;
+      
+      .task-description{
+        height: 40%;
+        textarea{
+          height: 200px;
+          min-height: 200px ;
+          max-height: 200px;
         }
       }
-
     }
-    .form-btns{
-      width: 40%;
+
+    .grid-right{
       padding: 10px;
-      display: flex;
-      justify-content: space-around;
-      button{
-        margin-left: 10px;
-      }
     }
   }
-}
+} 
+//  .form-div{
+//     display: flex;
+//     flex-direction: column;
+//     .mat-form-field{
+//       display: block;
+//     }
+//     input{
+//       width: auto;
+//     }
+//     .form-content{
+//       display: flex;
+
+//       .form-label{
+//         padding: 10px;
+//       }
+
+//       .form-elements{
+//         padding: 10px;
+//         width: 400px; 
+
+//         .expiry-date{
+//           input{
+//             margin-top: 20px;
+//           }
+//           ::ng-deep .mat-form-field-label-wrapper{
+//             top: 0;
+//           }
+//           mat-datepicker-toggle{
+//             float: right;
+//           }
+//         }
+//       }
+
+//     }
+//     .form-btns{
+//       width: 40%;
+//       padding: 10px;
+//       display: flex;
+//       justify-content: space-around;
+//       button{
+//         margin-left: 10px;
+//       }
+//     }
+//   }

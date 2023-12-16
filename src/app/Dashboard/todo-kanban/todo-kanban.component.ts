@@ -18,8 +18,11 @@ export class TodoKanbanComponent implements OnInit {
   searchText = ''
   todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
   inProgress = ['Get ', ' groceries', 'home', 'asleep'];
+  hold = ['Get ', ' groceries', 'home', 'asleep'];
   done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
   count = 15;
+  startDate = new Date('2023-12-01');
+  endDate = new Date();
 
   constructor() { }
 

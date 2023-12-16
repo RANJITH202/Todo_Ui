@@ -14,9 +14,9 @@
     </button>
   </div>
   <div class="content-div">
-    <app-todo-list *ngIf="tabName === 'list'"></app-todo-list>
+    <app-todo-form *ngIf="tabName === 'list'"></app-todo-form>
     <app-todo-form *ngIf="tabName === 'form'"></app-todo-form>
-    <app-todo-kanban *ngIf="tabName === 'kanban'"></app-todo-kanban>
+    <app-todo-form *ngIf="tabName === 'kanban'"></app-todo-form>
     <!-- <app-todo-kanban></app-todo-kanban> -->
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="frame">
+<!-- <div class="frame">
   <form>
     <div class="form-div">
       <div class=" form-content">
@@ -6,21 +6,21 @@
           <span>Todo Info</span>
         </div>
         <div class="form-elements">
-          <!-- TODO Name -->
+           TODO Name 
           <div>
             <mat-form-field appearance="outline">
               <mat-label>Todo Name</mat-label>
               <input matInput placeholder="New Task">
             </mat-form-field>
           </div>
-          <!-- TODO Description -->
+           TODO Description 
           <div>
             <mat-form-field appearance="outline">
               <mat-label>Description</mat-label>
               <textarea matInput></textarea>
             </mat-form-field>
           </div>
-          <!-- TODO date -->
+           TODO date 
           <div class="expiry-date">
             <mat-form-field>
               <mat-label>Expiry Date</mat-label>
@@ -35,6 +35,49 @@
       <div class=" form-btns">
         <button mat-raised-button color="success" type="submit"> Create </button>
         <button mat-raised-button color="warn" type="reset"> Clear</button>
+      </div>
+    </div>
+  </form>
+</div> -->
+
+<div class="frame">
+  <form [formGroup]="taskForm">
+    <div class="grid-container">
+
+      <div class="grid-left">
+        <!-- Task Tile -->
+        <div class="task-fields task-name">
+          <mat-label>Task Tile</mat-label>
+          <mat-form-field>
+            <input matInput formControlName="taskName" >
+          </mat-form-field>
+        </div>
+        <!-- Task Description -->
+        <div class="task-fields task-description">
+          <mat-label>Description</mat-label>
+          <textarea class="text" matInput formControlName="taskDescription" ></textarea>
+        </div>
+        <!-- Task Tag -->
+        <div class="task-fields task-tag">
+          <mat-label>Tags</mat-label>
+          <mat-form-field>
+            <input  matInput formControlName="taskTag" >
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="grid-right">
+        <div class="task-fields task-Status">
+          <mat-label>Tags</mat-label>
+          <mat-form-field>
+            <input  matInput formControlName="taskTag" >
+          </mat-form-field>
+        </div>
+        <!-- <ng-select [items]="statusList"
+        bindLabel="name"
+        placeholder="Select Status"
+        [(ngModel)]="taskStatus">
+        </ng-select> -->
       </div>
     </div>
   </form>

@@ -16,7 +16,7 @@ import { SideBarComponent } from './Dashboard/side-bar/side-bar.component';
 import { FullComponentComponent } from './Dashboard/full-component/full-component.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
-import { MatChipsModule } from '@angular/material/chips';
+import { StartEndDatePipe } from './pipes/start-end-date.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { MatChipsModule } from '@angular/material/chips';
     TodoKanbanComponent,
     TodoFormComponent,
     SideBarComponent,
-    FullComponentComponent
+    FullComponentComponent,
+    StartEndDatePipe
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,6 @@ import { MatChipsModule } from '@angular/material/chips';
     CommonMaterialModule,
     DragDropModule,
     FormsModule,
-    MatChipsModule
     // MaterialModule
   ],
   providers: [],

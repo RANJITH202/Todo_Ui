@@ -2,62 +2,253 @@
   <div class="kanban-top-bar">
     <mat-form-field class="example-full-width">
       <span matPrefix> </span>
-      <input type="text" [(ngModel)]="searchText" matInput placeholder="Search" name= "search" (keydown.enter)="search()">
-      <button matSuffix mat-button (click)="search()"><mat-icon >search</mat-icon></button>
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        matInput
+        placeholder="Search"
+        name="search"
+        (keydown.enter)="search()"
+      />
+      <button matSuffix mat-button (click)="search()">
+        <mat-icon>search</mat-icon>
+      </button>
     </mat-form-field>
   </div>
-  <div cdkDropListGroup>
-  
+  <div cdkDropListGroup class="task-container">
+    <!-- To do -->
     <div class="kanban-container">
-      <span class="kanban-title">To do {{count}}</span>
-    <div
-      cdkDropList
-      [cdkDropListData]="todo"
-      class="kanban-list"
-      (cdkDropListDropped)="drop($event)">
-      <div *ngFor="let item of todo; trackBy: trackItem">
-        <div class="kanban-box" cdkDrag [cdkDragData]="item">
-          <div class="box-content">
-            <h3 matLine>
-              <mat-chip-list>
-                <mat-chip>
-                  <a style="color: #0B7641" >{{item}}</a></mat-chip>
-                </mat-chip-list>
-              </h3>
-              <p matLine class="text-inverse" > {{item}} </p>
-              <p matLine class="text-inverse"><b>{{item}}</b></p>
+      <div class="kanban-title">
+        <span>To do</span>
+        <div class="count todo-count">{{ count }}</div>
+      </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="todo"
+        class="kanban-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div *ngFor="let item of todo; trackBy: trackItem">
+          <div class="kanban-box" cdkDrag [cdkDragData]="item">
+            <div class="box-content">
+              <div class="box-header">
+                <h3 matLine>
+                  <mat-chip-list>
+                    <mat-chip>
+                      <a>{{ item }}</a>
+                    </mat-chip>
+                  </mat-chip-list>
+                </h3>
+                <i class="fa fa-ellipsis-h"></i>
+              </div>
+              <h3 class="task-title">{{ item }}</h3>
+              <div class="img-conatiner" *ngIf="false">
+                <img
+                  class="task-img"
+                  src="../../../assets/profile-pic.jpg"
+                  alt="user"
+                />
+              </div>
+              <p class="task-description">
+                A "To-Do" app is a simple application designed to help users
+                manage and organize tasks or activities they need to accomplish.
+              </p>
+              <p class="task-start-end-date" matLine>
+                <i class="bx bxs-calendar-event"></i>
+                {{ startDate | startEndDate : endDate }}
+              </p>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hold -->
+    <div class="kanban-container">
+      <div class="kanban-title">
+        <span>Hold</span>
+        <div class="count hold-count">{{ count }}</div>
+      </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="hold"
+        class="kanban-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div *ngFor="let item of hold; trackBy: trackItem">
+          <div class="kanban-box" cdkDrag [cdkDragData]="item">
+            <div class="box-content">
+              <div class="box-header">
+                <h3 matLine>
+                  <mat-chip-list>
+                    <mat-chip>
+                      <a>{{ item }}</a>
+                    </mat-chip>
+                  </mat-chip-list>
+                </h3>
+                <i class="fa fa-ellipsis-h"></i>
+              </div>
+              <h3 class="task-title">{{ item }}</h3>
+              <div class="img-conatiner" *ngIf="false">
+                <img
+                  class="task-img"
+                  src="../../../assets/profile-pic.jpg"
+                  alt="user"
+                />
+              </div>
+              <p class="task-description">
+                A "To-Do" app is a simple application designed to help users
+                manage and organize tasks or activities they need to accomplish.
+              </p>
+              <p class="task-start-end-date" matLine>
+                <i class="bx bxs-calendar-event"></i>
+                {{ startDate | startEndDate : endDate }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- In Progress -->
+    <div class="kanban-container">
+      <div class="kanban-title">
+        <span>In Progress</span>
+        <div class="count progress-count">{{ count }}</div>
+      </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="inProgress"
+        class="kanban-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div *ngFor="let item of inProgress; trackBy: trackItem">
+          <div class="kanban-box" cdkDrag [cdkDragData]="item">
+            <div class="box-content">
+              <div class="box-header">
+                <h3 matLine>
+                  <mat-chip-list>
+                    <mat-chip>
+                      <a>{{ item }}</a>
+                    </mat-chip>
+                  </mat-chip-list>
+                </h3>
+                <i class="fa fa-ellipsis-h"></i>
+              </div>
+              <h3 class="task-title">{{ item }}</h3>
+              <div class="img-conatiner" *ngIf="true">
+                <img
+                  class="task-img"
+                  src="../../../assets/profile-pic.jpg"
+                  alt="user"
+                />
+              </div>
+              <p class="task-description">
+                A "To-Do" app is a simple application designed to help users
+                manage and organize tasks or activities they need to accomplish.
+              </p>
+              <p class="task-start-end-date" matLine>
+                <i class="bx bxs-calendar-event"></i>
+                {{ startDate | startEndDate : endDate }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review -->
+    <div class="kanban-container">
+          <div class="kanban-title">
+            <span>In Review</span>
+            <div class="count review-count">{{ count }}</div>
+          </div>
+          <div
+            cdkDropList
+            [cdkDropListData]="hold"
+            class="kanban-list"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div *ngFor="let item of hold; trackBy: trackItem">
+              <div class="kanban-box" cdkDrag [cdkDragData]="item">
+                <div class="box-content">
+                  <div class="box-header">
+                    <h3 matLine>
+                      <mat-chip-list>
+                        <mat-chip>
+                          <a>{{ item }}</a>
+                        </mat-chip>
+                      </mat-chip-list>
+                    </h3>
+                    <i class="fa fa-ellipsis-h"></i>
+                  </div>
+                  <h3 class="task-title">{{ item }}</h3>
+                  <div class="img-conatiner" *ngIf="false">
+                    <img
+                      class="task-img"
+                      src="../../../assets/profile-pic.jpg"
+                      alt="user"
+                    />
+                  </div>
+                  <p class="task-description">
+                    A "To-Do" app is a simple application designed to help users
+                    manage and organize tasks or activities they need to accomplish.
+                  </p>
+                  <p class="task-start-end-date" matLine>
+                    <i class="bx bxs-calendar-event"></i>
+                    {{ startDate | startEndDate : endDate }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <!-- Done -->
+    <div class="kanban-container">
+      <div class="kanban-title">
+        <span>Done</span>
+        <div class="count done-count">{{ count }}</div>
+      </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="done"
+        class="kanban-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div *ngFor="let item of done; trackBy: trackItem">
+          <div class="kanban-box" cdkDrag [cdkDragData]="item">
+            <div class="box-content">
+              <div class="box-header">
+                <h3 matLine>
+                  <mat-chip-list>
+                    <mat-chip>
+                      <a>{{ item }}</a>
+                    </mat-chip>
+                  </mat-chip-list>
+                </h3>
+                <i class="fa fa-ellipsis-h"></i>
+              </div>
+              <h3 class="task-title">{{ item }}</h3>
+              <div class="img-conatiner" *ngIf="true">
+                <img
+                  class="task-img"
+                  src="../../../assets/profile-pic.jpg"
+                  alt="user"
+                />
+              </div>
+              <p class="task-description">
+                A "To-Do" app is a simple application designed to help users
+                manage and organize tasks or activities they need to accomplish.
+              </p>
+              <p class="task-start-end-date" matLine>
+                <i class="bx bxs-calendar-event"></i>
+                {{ startDate | startEndDate : endDate }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="kanban-container">
-    <span class="kanban-title">To do {{count}}</span>
-    <div
-      cdkDropList
-      [cdkDropListData]="inProgress"
-      class="kanban-list"
-      (cdkDropListDropped)="drop($event)">
-      <div *ngFor="let item of inProgress; trackBy: trackItem">
-        <div class="kanban-box" cdkDrag [cdkDragData]="item">{{item}}</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="kanban-container">
-    <span class="kanban-title">To do {{count}}</span>
-
-    <div
-      cdkDropList
-      [cdkDropListData]="done"
-      class="kanban-list"
-      (cdkDropListDropped)="drop($event)">
-      <div *ngFor="let item of done; trackBy: trackItem">
-        <div class="kanban-box" cdkDrag [cdkDragData]="item">{{item}}</div>
-      </div>      
-    </div>
-  </div>
-
-</div>
 </div>

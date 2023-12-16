@@ -48,11 +48,15 @@ $Todo-ui-theme: mat.define-light-theme((
   --body-color: hsl(224, 54%, 93%);
   --sidebar-color: #FFF;
   --primary-color: #302b63;
-  --secondary-color: #302b639d;
+  --secondary-color: #352F44;
   --primary-color-light: #F6F5FF;
   --toggle-color: #DDD;
   --text-color: #707070;
   --sidebar-text-color: #FFF;
+  --primary-text-color: #5C5470;
+  --sencondary-text-color: #B9B4C7;
+  --kanban-box-color: #fff;
+  --mat-chip-color: #302b63;
 
 
   /* ====== Transition ====== */
@@ -79,4 +83,8 @@ body.dark{
   --toggle-color: #fff;
   --text-color: #ccc;
   --sidebar-text-color: #FFF;
+  --primary-text-color: #fff;
+  --sencondary-text-color: #D8D9DA;
+  --kanban-box-color: #000;
+  --mat-chip-color: #fff;
 }
